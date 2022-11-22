@@ -14,6 +14,7 @@ class Solution:
         # 펠른드롬 여부 판별
         while len(strs) > 1:
             if strs.pop(0) != strs.pop():  # pop(0) : 맨 앞의 값을 가져옴, pop() : 맨 뒤의 값을 가져옴
+                                           # O(N) + O(1)
                 return False
 
         return True
@@ -22,14 +23,15 @@ class Solution:
     def isPalindrome_deque(self, s: str) -> bool:
 
         # 자료형 데크로 선언
-        strs: Deque = collections.deque()
+        # strs: collections.deque = collections.deque()
+        strs = Deque()
 
         for char in s:
             if char.isalnum():
                 strs.append(char.lower())
 
         while len(strs) > 1:
-            if strs.popleft() != strs.pop():
+            if strs.popleft() != strs.pop():  # O(1) + O(1)
                 return False
 
         return True
