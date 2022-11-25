@@ -1,11 +1,11 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        output = [1] * len(nums)
+        output = []
         
         prefix = 1
         #왼쪽 곱셈
         for i in range(0,len(nums)):
-            output[i] = prefix
+            output.append(prefix)
             prefix *= nums[i]
             
         postfix = 1
